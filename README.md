@@ -1,6 +1,6 @@
 # LifeWise Counseling & Wellness website
 
-The existing homepage and the remaining LifeWise pages share the ivory, green, and gold design. Content and reference images come from the supplied `../scraped_site` clone.
+The existing homepage and the remaining LifeWise pages share the brand's deep navy, teal, and white palette. Content and reference images come from the supplied `../scraped_site` clone.
 
 The site includes services and seven service detail pages; a care team directory and five profiles; consultation booking; insurance and pricing; FAQs; referral partners; supervision and career development; five client information pages; and a searchable reflections archive with 35 full articles.
 

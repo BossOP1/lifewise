@@ -1,8 +1,8 @@
-/* Botanical ornaments sit on section boundaries without adding empty bands. */
+/* Brand ornaments sit on section boundaries without adding empty bands. */
 .section-divider {
-  --divider-surface: #faf8f0;
-  --divider-leaf: #537457;
-  --divider-gold: #b99a52;
+  --divider-surface: #e5f5f5;
+  --divider-leaf: #0b7f7a;
+  --divider-accent: #2c9aa0;
   position: absolute;
   top: 0;
   left: var(--section-gutter);
@@ -20,30 +20,30 @@
   content: '';
   height: 1px;
   flex: 1;
-  background: linear-gradient(90deg, transparent, rgba(185, 154, 82, .48));
+  background: linear-gradient(90deg, transparent, rgba(44, 154, 160, .48));
 }
-.section-divider::after { background: linear-gradient(90deg, rgba(185, 154, 82, .48), transparent); }
+.section-divider::after { background: linear-gradient(90deg, rgba(44, 154, 160, .48), transparent); }
 .referrals > .section-divider { max-width: none; }
 .section-divider-ornament {
   display: grid;
   place-items: center;
   flex: 0 0 84px;
   height: 44px;
-  border: 1px solid rgba(185, 154, 82, .28);
+  border: 1px solid rgba(44, 154, 160, .28);
   border-radius: 50%;
   background: var(--divider-surface);
-  box-shadow: 0 2px 8px rgba(37, 77, 59, .025);
+  box-shadow: 0 2px 8px rgba(11, 45, 92, .025);
 }
 .section-divider svg { display: block; width: 64px; height: 32px; }
-.divider-stem { stroke: var(--divider-gold); stroke-width: .9; stroke-linecap: round; }
+.divider-stem { stroke: var(--divider-accent); stroke-width: .9; stroke-linecap: round; }
 .divider-leaf { fill: var(--divider-leaf); fill-opacity: .18; stroke: var(--divider-leaf); stroke-width: .7; stroke-linejoin: round; }
-.divider-seed { fill: var(--divider-gold); }
+.divider-seed { fill: var(--divider-accent); }
 .section-divider--dark {
-  --divider-surface: #31553e;
-  --divider-leaf: #eddcb0;
-  --divider-gold: #cfb16d;
+  --divider-surface: #0b7f7a;
+  --divider-leaf: #bfe6e8;
+  --divider-accent: #2c9aa0;
 }
-.section-divider--dark .section-divider-ornament { border-color: rgba(237, 220, 176, .35); }
+.section-divider--dark .section-divider-ornament { border-color: rgba(191, 230, 232, .35); }
 .sanctuary-banner > .section-divider {
   top: 28px;
   left: 32px;

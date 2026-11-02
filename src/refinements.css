@@ -200,7 +200,7 @@ html[data-theme="dark"] .nav-links .nav-button:hover,
 .coverage-card:hover, html[data-theme="dark"] .area-card:hover,
 html[data-theme="dark"] .coverage-card:hover {
   transform: none;
-  box-shadow: 0 12px 28px rgba(20, 43, 29, .12);
+  box-shadow: 0 12px 28px rgba(11, 45, 92, .12);
 }
 .area-card:hover .area-card-arrow { transform: none; box-shadow: none; }
 .coverage-card li, .faq-list details, .faq-list summary { transition: background 220ms ease, color 220ms ease; }
@@ -275,7 +275,7 @@ html[data-theme="dark"] .coverage-card:hover {
   ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
 }
 
-/* A more expressive hero, with an ivory opening and a gold italic response. */
+/* A more expressive hero, with a white opening and a light-teal italic response. */
 .hero-content { width: min(46%, 640px); animation: hero-type-arrival 550ms ease-out; }
 .hero-eyebrow {
   display: flex;
@@ -289,7 +289,7 @@ html[data-theme="dark"] .coverage-card:hover {
   content: '';
   flex: 0 0 32px;
   height: 1px;
-  background: #d5b76b;
+  background: #2c9aa0;
 }
 .hero-heading {
   display: flex;
@@ -306,7 +306,7 @@ html[data-theme="dark"] .coverage-card:hover {
 }
 .hero-heading em {
   display: block;
-  color: #e6c77e;
+  color: #bfe6e8;
   font-size: clamp(60px, 6.25vw, 116px);
   font-style: italic;
   font-weight: 500;
@@ -321,7 +321,7 @@ html[data-theme="dark"] .coverage-card:hover {
   line-height: 1.5;
   letter-spacing: .005em;
 }
-.hero-description span { display: block; color: #e5ebdf; font-weight: 400; }
+.hero-description span { display: block; color: #e5f5f5; font-weight: 400; }
 .hero-care-format { font-size: 15px; line-height: 1.7; margin-bottom: 26px; }
 .hero-action {
   gap: 24px;
@@ -337,8 +337,8 @@ html[data-theme="dark"] .coverage-card:hover {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #254d3b;
-  color: #eddcb0;
+  background: #0b2d5c;
+  color: #bfe6e8;
   font-size: 18px;
   line-height: 1;
 }
