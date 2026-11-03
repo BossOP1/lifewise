@@ -78,7 +78,7 @@ export default function ServiceDetailPage({ service, page, otherServices }) {
         <p className="eyebrow">{service.title}</p>
         <h1>{opening}<br /><em>{accent}</em></h1>
         <p className="service-hero-description">{service.desc}</p>
-        <div className="service-hero-actions"><Action light /><a href="#your-experience" className="service-discover">Explore this care <span aria-hidden="true">↓</span></a></div>
+        <div className="service-hero-actions"><Action light /><a href="/our-approach/" className="service-discover">Learn about our approach <span aria-hidden="true">↗</span></a></div>
         <div className="service-hero-note"><span aria-hidden="true">✦</span> Thoughtful care. At a pace that works for you.</div>
       </div>
     </section>
@@ -97,7 +97,7 @@ export default function ServiceDetailPage({ service, page, otherServices }) {
     </section>
 
     <section className="service-understanding service-section">
-      <div className="service-understanding-photo"><img src={service.image} alt={service.imageAlt} style={{ objectPosition: "center 35%" }} loading="lazy" /><span className="service-photo-seal" aria-hidden="true">ROOM TO<br /><em>be you.</em></span></div>
+      <div className="service-understanding-photo"><img src={service.detailImage?.src || service.image} alt={service.detailImage?.alt || service.imageAlt} style={{ objectPosition: "center 35%" }} loading="lazy" /><span className="service-photo-seal" aria-hidden="true">ROOM TO<br /><em>be you.</em></span></div>
       <div className="service-story-stack"><p className="eyebrow">02 / UNDERSTANDING YOUR EXPERIENCE</p>{data.before.map(section => <article className="service-story" id={section.id} key={section.id}><h2>{section.title}</h2><RichBlocks nodes={section.nodes} /></article>)}</div>
     </section>
 
@@ -112,7 +112,7 @@ export default function ServiceDetailPage({ service, page, otherServices }) {
 
     <section className="service-ending service-section">
       <BotanicalRule />
-      <p className="eyebrow">WHENEVER YOU’RE READY</p><h2>{data.closing.title}</h2><RichBlocks nodes={closingNodes} /><Action>Book a complimentary consultation</Action><p className="service-ending-note">A small first conversation. No pressure to have everything figured out.</p>
+      <p className="eyebrow">WHENEVER YOU’RE READY</p><h2>{data.closing.title}</h2><RichBlocks nodes={closingNodes} /><Action>Book a free 15-minute consultation</Action><p className="service-ending-note">A small first conversation. No pressure to have everything figured out.</p>
     </section>
 
     <section className="service-related service-section"><div><p className="eyebrow">OTHER WAYS WE CAN HELP</p><h2>Explore more <em>support.</em></h2></div><div className="service-related-links">{related.map(item => <a key={item.path} href={item.path}><span>{item.title}</span><b aria-hidden="true">↗</b></a>)}<a href="/services/" className="service-related-all">All LifeWise services <b aria-hidden="true">↗</b></a></div></section>

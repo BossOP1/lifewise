@@ -70,10 +70,11 @@ html[data-theme="dark"] {
 /* The supplied logo already uses the brand navy and teal; show it untouched. */
 .brand img, .footer-logo img, html[data-theme="dark"] .brand img { filter: none; }
 .footer-logo {
-  padding: 8px 10px;
-  background: var(--brand-white);
-  border-radius: 4px;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
 }
+.footer-logo img { filter: brightness(0) invert(1); }
 .hero { background: var(--cream); }
 .hero-backdrop,
 html[data-theme="dark"] .hero-backdrop {

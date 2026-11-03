@@ -91,7 +91,7 @@
 .service-more-grid .service-copy { font-size: 16px; }
 .service-ending { text-align: center; padding-block: 95px; background: radial-gradient(ellipse at center,#e5f5f5,#e5f5f5 78%); }
 .service-ending h2 { max-width: 880px; font-size: clamp(42px,4.8vw,68px); margin: 20px auto 28px; }
-.service-ending > .service-copy { max-width: 650px; margin: 0 auto 30px; font-size: 16px; }
+.service-ending > .service-copy { max-width: 900px; margin: 0 auto 30px; font-size: 16px; }
 .service-ending-note { font-size: 13px; color: var(--muted); margin: 20px 0 0; }
 .service-related { display: grid; grid-template-columns: 1fr 1fr; gap: 15%; background: #e5f5f5; padding-block: 60px; border-top: 1px solid var(--accent-border); }
 .service-related h2 { margin: 0; font-size: 45px; }

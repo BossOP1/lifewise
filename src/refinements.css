@@ -135,7 +135,7 @@ p { text-wrap: pretty; }
 .recognition { padding: 24px var(--section-gutter); }
 .recognition p { font-size: 15px; line-height: 1.7; }
 .philosophy-section { padding: clamp(48px, 5vw, 72px) var(--section-gutter); }
-.philosophy-inner { max-width: 800px; margin: 0 auto; }
+.philosophy-inner { max-width: min(1100px, 94vw); margin: 0 auto; }
 .sanctuary-banner {
   padding: clamp(40px, 5vw, 72px);
   margin: 0 var(--section-gutter);
@@ -285,7 +285,7 @@ html[data-theme="dark"] .coverage-card:hover {
   font-size: 13px;
   letter-spacing: .18em;
 }
-.hero-eyebrow::before {
+.hero-eyebrow::after {
   content: '';
   flex: 0 0 32px;
   height: 1px;

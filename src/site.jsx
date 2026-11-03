@@ -447,7 +447,7 @@ function App() {
         <p className="eyebrow">WHENEVER YOU&apos;RE READY</p>
         <h2>A small first conversation can help you see what comes next.</h2>
         <p>No pressure to have everything figured out.</p>
-        <a href={consultation}>Choose a consultation time <span>↗</span></a>
+        <a href={consultation}>Book a free 15-minute consultation <span>↗</span></a>
       </section>
     </main>}
 
@@ -496,7 +496,7 @@ function App() {
         </div>
         <div className="footer-column footer-contact">
           <h2>Start a conversation</h2>
-          <a className="footer-book" href={consultation}>Book a consultation <span>↗</span></a>
+          <a className="footer-book" href={consultation}>Book a free 15-minute consultation <span>↗</span></a>
           <a href="tel:+18176028520">817.602.8520</a>
           <a href="mailto:lifewise@lifewisetx.com">lifewise@lifewisetx.com</a>
           <small>For emergencies call 911. For immediate crisis support call or text 988.</small>

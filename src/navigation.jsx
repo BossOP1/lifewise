@@ -62,7 +62,7 @@ export default function SiteHeader({ path, scrolled, services }) {
         <a href="/sanctuary/" aria-current={path === '/sanctuary/' ? 'page' : undefined}>Sanctuary</a>
         <a href="/reflections/" aria-current={path === '/reflections/' || path.startsWith('/2026/') ? 'page' : undefined}>Reflections</a>
         <a href="/pricing/" aria-current={path === '/pricing/' ? 'page' : undefined}>Insurance & pricing</a>
-        <div className="nav-mobile-footer"><a href="/sanctuary/">Discover our Sanctuary <span aria-hidden="true">↗</span></a><a href="/consultation/">Book a consultation <span aria-hidden="true">↗</span></a><p>In North Fort Worth. Online across Texas.</p></div>
+        <div className="nav-mobile-footer"><a href="/sanctuary/">Discover our Sanctuary <span aria-hidden="true">↗</span></a><a href="/consultation/">Book a free 15-minute consultation <span aria-hidden="true">↗</span></a><p>In North Fort Worth. Online across Texas.</p></div>
       </nav>
       <div className="header-actions"><a className="nav-button" href="/consultation/">Let’s talk <span aria-hidden="true">↗</span></a><button ref={menuButtonRef} className="menu-toggle" type="button" onClick={() => { setMenuOpen(open => !open); setServicesOpen(false); }} aria-controls="main-navigation" aria-expanded={menuOpen} aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}><span /><span /></button></div>
     </div>
