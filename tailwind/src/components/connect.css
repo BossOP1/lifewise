@@ -1,0 +1,42 @@
+/* Homepage: professionals + urgent support as one open, two-column band (no cards). */
+.lw-connect { position: relative; z-index: 3; background: #eaf5f6; border-top: 1px solid rgba(2, 110, 122, 0.12); }
+/* Leaf ornament sits on the bottom edge, where the section meets the closing CTA. */
+.lw-connect > .section-divider { --divider-surface: #eaf5f6; top: auto; bottom: 0; transform: translateY(50%); }
+@media (min-width: 1024px) {
+  .lw-connect-crisis { border-left: 1px solid rgba(2, 110, 122, 0.22); }
+}
+@media (max-width: 1023px) {
+  .lw-connect-crisis { border-top: 1px solid rgba(2, 110, 122, 0.22); padding-top: 48px; }
+}
+
+.lw-connect-link {
+  display: inline-flex; align-items: center; gap: 12px; padding-bottom: 6px;
+  color: #001e4b; font-size: 15px; font-weight: 700; text-decoration: none;
+  border-bottom: 1.5px solid #026e7a; transition: gap 220ms ease, color 220ms ease;
+}
+.lw-connect-link:hover { gap: 18px; color: #026e7a; }
+
+.lw-crisis-row {
+  display: grid; grid-template-columns: 84px 1fr auto; align-items: center; gap: 18px;
+  padding: 18px 0; text-decoration: none; border-top: 1px solid rgba(2, 110, 122, 0.18);
+}
+.lw-crisis-row:last-child { border-bottom: 1px solid rgba(2, 110, 122, 0.18); }
+.lw-crisis-row > b {
+  font-family: var(--font-royal, 'Cormorant Garamond', serif); font-size: 40px; line-height: 1;
+  font-weight: 600; color: #001e4b; letter-spacing: -0.01em; font-variant-numeric: lining-nums;
+}
+.lw-crisis-row > b.lw-crisis-chat { font-size: 30px; font-style: italic; font-weight: 500; color: #026e7a; }
+.lw-crisis-row > span { color: #3d4a5c; font-size: 15px; line-height: 1.5; }
+.lw-crisis-row > i { font-style: normal; color: #026e7a; transition: transform 220ms ease; }
+.lw-crisis-row:hover > i { transform: translate(3px, -3px); }
+.lw-crisis-row:hover > span { color: #001e4b; }
+.lw-connect-link:focus-visible, .lw-crisis-row:focus-visible { outline: 3px solid #aed5d9; outline-offset: 4px; }
+
+@media (max-width: 480px) {
+  .lw-crisis-row { grid-template-columns: 64px 1fr auto; gap: 14px; }
+  .lw-crisis-row > b { font-size: 32px; }
+  .lw-crisis-row > b.lw-crisis-chat { font-size: 25px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lw-connect-link, .lw-crisis-row > i { transition: none; }
+}

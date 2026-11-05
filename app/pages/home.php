@@ -280,23 +280,26 @@
     </div>
   </section>
 
-  <section class="referrals">
-    <?php partial('divider'); ?>
-    <div>
-      <p class="eyebrow">FOR PROFESSIONALS &amp; FUTURE COUNSELORS</p>
-      <h2>Let&apos;s make a thoughtful connection.</h2>
-      <p>Contact us to ask about professional referrals, LPC supervision, and counselor development opportunities. We&apos;ll share the appropriate next steps before you send client information.</p>
-    </div>
-    <a href="<?= PROFESSIONAL_MAIL ?>">Contact LifeWise <span>↗</span></a>
-  </section>
+  <section class="lw-connect" aria-label="Professionals and urgent support">
+    <div class="mx-auto grid w-full max-w-[1280px] gap-12 px-5 py-16 sm:px-10 lg:grid-cols-2 lg:gap-0 lg:py-24 xl:px-16">
+      <div class="lg:pr-16">
+        <span class="text-[12px] font-bold tracking-[0.16em] text-lw-teal">FOR PROFESSIONALS &amp; FUTURE COUNSELORS</span>
+        <h2 class="m-0 mt-4 font-royal text-[clamp(32px,3.6vw,46px)] leading-[1.05] font-semibold tracking-[-0.02em] text-lw-navy">Let&apos;s make a <em class="font-normal italic text-lw-teal">thoughtful connection.</em></h2>
+        <span class="mt-5 block max-w-[500px] text-[16px] leading-[1.75] text-lw-slate">Ask us about professional referrals, LPC supervision, and counselor development. We&apos;ll share the right next steps before you send any client information.</span>
+        <a class="lw-connect-link mt-8" href="<?= PROFESSIONAL_MAIL ?>">Contact LifeWise <span aria-hidden="true">↗</span></a>
+      </div>
 
-  <section class="crisis">
-    <div>
-      <p class="eyebrow">NEED SUPPORT RIGHT NOW?</p>
-      <h2>If you&apos;re in immediate danger or facing a medical emergency, call 911.</h2>
-      <p>If you or someone you know is in crisis, call or text 988, or chat with the 988 Lifeline.</p>
+      <div class="lw-connect-crisis lg:pl-16" aria-labelledby="crisis-title">
+        <span class="text-[12px] font-bold tracking-[0.16em] text-lw-teal">NEED SUPPORT RIGHT NOW?</span>
+        <h2 id="crisis-title" class="m-0 mt-4 font-royal text-[clamp(28px,2.8vw,36px)] leading-[1.1] font-semibold text-lw-navy">Help is available any time, day or night.</h2>
+        <div class="mt-7">
+          <a class="lw-crisis-row" href="tel:911"><b>911</b><span>If you&apos;re in immediate danger or facing a medical emergency</span><i aria-hidden="true">↗</i></a>
+          <a class="lw-crisis-row" href="tel:988"><b>988</b><span>If you or someone you know is in crisis, call or text</span><i aria-hidden="true">↗</i></a>
+          <a class="lw-crisis-row" href="https://988lifeline.org/get-help/" target="_blank" rel="noreferrer"><b class="lw-crisis-chat">Chat</b><span>Prefer to type? Chat with the 988 Lifeline</span><i aria-hidden="true">↗</i></a>
+        </div>
+      </div>
     </div>
-    <a href="https://988lifeline.org/get-help/" target="_blank" rel="noreferrer">988 Lifeline <span>↗</span></a>
+    <?php partial('divider'); ?>
   </section>
 
   <?php partial('closing', [
