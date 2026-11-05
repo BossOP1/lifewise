@@ -8,13 +8,24 @@
   const concierge = document.querySelector('[data-concierge]');
   const conciergeKey = 'lifewise-concierge-dismissed';
   const conciergeDismissed = () => { try { return sessionStorage.getItem(conciergeKey) === '1'; } catch { return false; } };
+  // The footer has its own consultation button, so the dock steps aside while it is on screen.
+  let footerVisible = false;
+  const updateConcierge = () => {
+    if (!concierge) return;
+    if (footerVisible) concierge.classList.add('hidden');
+    else if (window.scrollY > 480 && !conciergeDismissed()) concierge.classList.remove('hidden');
+  };
+  const footer = document.querySelector('.lw-footer');
+  if (footer && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => { footerVisible = entry.isIntersecting; updateConcierge(); }).observe(footer);
+  }
 
   const onScroll = () => {
     const total = document.documentElement.scrollHeight - window.innerHeight;
     const progress = total > 0 ? window.scrollY / total : 0;
     if (progressBar) progressBar.style.transform = `scaleX(${progress})`;
     header?.classList.toggle('is-scrolled', progress > 0);
-    if (concierge && window.scrollY > 480 && !conciergeDismissed()) concierge.classList.remove('hidden');
+    updateConcierge();
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();

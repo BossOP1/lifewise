@@ -28,6 +28,13 @@
   --color-mist: #e5f5f5;
   --color-cream: #ffffff;
 
+  /* Exact colours sampled from the LifeWise logo. */
+  --color-lw-navy: #001e4b;   /* "LIFE" */
+  --color-lw-teal: #026e7a;   /* "WISE COUNSELING" */
+  --color-lw-aqua: #aed5d9;   /* the arch */
+  --color-lw-mist: #eaf5f6;   /* arch highlight, used for soft backgrounds */
+  --color-lw-slate: #3d4a5c;  /* body text on light backgrounds */
+
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-royal: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
   --font-sans: 'Haskoy', 'Plus Jakarta', 'Segoe UI', sans-serif;
@@ -43,3 +50,8 @@
 @import "./components/service-pages.css" layer(components);
 @import "./components/navigation-pages.css" layer(components);
 @import "./components/readability.css" layer(components);
+@import "./components/home-hero.css" layer(components);
+@import "./components/footer.css" layer(components);
+@import "./components/cta.css" layer(components);
+@import "./components/sanctuary.css" layer(components);
+@import "./components/topbar.css" layer(components);

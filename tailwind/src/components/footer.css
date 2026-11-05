@@ -1,0 +1,158 @@
+/*
+ * Site footer: dark navy from the logo. Layout and type are Tailwind utilities in
+ * app/partials/layout-end.php; this file holds the background, the logo arches,
+ * and link styles. Selectors are prefixed with .lw-footer so they beat the
+ * legacy bare `footer` rules.
+ */
+footer.lw-footer {
+  position: relative;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.72);
+  background:
+    radial-gradient(60% 90% at 100% 0%, rgba(2, 110, 122, 0.45) 0%, rgba(2, 110, 122, 0) 65%),
+    radial-gradient(50% 70% at 0% 100%, rgba(2, 110, 122, 0.22) 0%, rgba(2, 110, 122, 0) 70%),
+    #001e4b;
+}
+/* Thin aqua line across the top edge. */
+footer.lw-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(174, 213, 217, 0) 0%, rgba(174, 213, 217, 0.55) 50%, rgba(174, 213, 217, 0) 100%);
+}
+
+.lw-footer .lw-footer-link {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 15px;
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  padding-bottom: 2px;
+  transition: color .2s, background-size .25s;
+}
+.lw-footer .lw-footer-link:hover { color: #aed5d9; background-size: 100% 1px; }
+
+/* Contact tiles: call, email, book. */
+.lw-footer .lw-footer-tile {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 150px;
+  padding: 22px 22px 20px;
+  border: 1px solid rgba(174, 213, 217, 0.18);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  text-decoration: none;
+  transition: transform .25s cubic-bezier(.2, .7, .2, 1), background-color .25s, border-color .25s;
+}
+.lw-footer .lw-footer-tile:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(174, 213, 217, 0.45);
+}
+.lw-footer-tile-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(174, 213, 217, 0.14);
+  color: #aed5d9;
+}
+.lw-footer-tile-icon svg { width: 20px; height: 20px; }
+.lw-footer-tile-label {
+  margin-top: auto;
+  padding-top: 22px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(174, 213, 217, 0.85);
+}
+.lw-footer-tile-value {
+  margin-top: 6px;
+  font-family: var(--font-royal);
+  font-size: 24px;
+  line-height: 1.2;
+  color: #ffffff;
+}
+.lw-footer-tile-value--sm { font-size: 21px; }
+
+/* Phones: compact horizontal tiles, icon beside the text. */
+@media (max-width: 639px) {
+  .lw-footer .lw-footer-tile {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    column-gap: 16px;
+    align-items: center;
+    min-height: 0;
+    padding: 18px 20px;
+  }
+  .lw-footer-tile-icon { grid-row: span 2; }
+  .lw-footer-tile-label { margin-top: 0; padding-top: 0; }
+  .lw-footer-tile-value { margin-top: 2px; font-size: 22px; }
+  .lw-footer-tile-value--sm { font-size: 19px; }
+}
+.lw-footer-tile-arrow { font-family: var(--font-sans); font-size: 18px; margin-left: 4px; }
+/* The booking tile is the primary action. */
+.lw-footer .lw-footer-tile--primary {
+  background: #aed5d9;
+  border-color: #aed5d9;
+  color: #001e4b;
+}
+.lw-footer .lw-footer-tile--primary:hover { background: #ffffff; border-color: #ffffff; }
+.lw-footer-tile--primary .lw-footer-tile-icon { background: #001e4b; color: #aed5d9; }
+.lw-footer-tile--primary .lw-footer-tile-label { color: #026e7a; }
+.lw-footer-tile--primary .lw-footer-tile-value { color: #001e4b; }
+
+/* Oversized "Come as you are." echoing the hero, sitting just above the bottom bar. */
+.lw-footer-signature {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 24px 0.22em; /* room for the descender in "you" */
+  max-width: 1280px;
+  font-family: var(--font-royal);
+  font-size: clamp(40px, 12.5vw, 196px);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(174, 213, 217, 0.34) 0%, rgba(174, 213, 217, 0.06) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  user-select: none;
+  pointer-events: none;
+}
+.lw-footer-signature em { font-weight: 400; }
+
+.lw-footer .lw-footer-legal { color: rgba(255, 255, 255, 0.6); text-decoration: none; }
+.lw-footer .lw-footer-legal:hover { color: #ffffff; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Underlined text link with an arrow (shared), plus a light variant for dark backgrounds. */
+.lw-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #aed5d9;
+  color: #001e4b;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color .2s, border-color .2s, gap .2s;
+}
+.lw-link:hover { color: #026e7a; border-color: #026e7a; gap: 14px; }
+.lw-link--light { color: #ffffff; border-color: rgba(174, 213, 217, 0.5); }
+.lw-link--light:hover { color: #aed5d9; border-color: #aed5d9; }
+
+.lw-footer a:focus-visible { outline: 2px solid #aed5d9; outline-offset: 3px; border-radius: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lw-footer .lw-footer-tile { transition: none; }
+  .lw-footer .lw-footer-tile:hover { transform: none; }
+}

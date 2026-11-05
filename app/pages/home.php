@@ -5,20 +5,43 @@
 /** @var array $homeReflections */
 ?>
 <main id="home" tabindex="-1">
-  <section class="hero">
-    <div class="hero-backdrop" aria-hidden="true">
-      <video class="hero-background-video" autoplay muted loop playsinline preload="metadata" tabindex="-1" data-hero-video>
-        <source src="/lightTheme.mp4" type="video/mp4" />
+  <section class="lw-hero relative isolate flex min-h-[760px] items-start overflow-hidden sm:min-h-[720px] lg:min-h-[clamp(640px,calc(100svh-148px),880px)] lg:items-center" aria-labelledby="hero-title">
+    <div class="absolute inset-0 -z-20" aria-hidden="true">
+      <video class="lw-hero-video size-full object-cover" autoplay muted loop playsinline preload="metadata" poster="/images/hero-meadow-poster.jpg" tabindex="-1" data-hero-video>
+        <source src="/assets/bg-video/4909470-hd_1920_1080_25fps.mp4" type="video/mp4" />
       </video>
     </div>
-    <div class="hero-shade" aria-hidden="true"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">COUNSELING &amp; WELLNESS IN TEXAS</p>
-      <h1 class="hero-heading"><span class="hero-opening">Come</span> <em>as you are.</em></h1>
-      <p class="hero-description">We&apos;ll meet you where you are.<span>And find a way forward, together.</span></p>
-      <p class="hero-care-format">In person in North Fort Worth. Online across Texas.</p>
-      <a class="hero-action" href="<?= CONSULTATION ?>">Start a conversation <span aria-hidden="true">↗</span></a>
-      <p class="hero-consultation-note">A complimentary 15-minute consultation.</p>
+    <div class="lw-hero-wash absolute inset-0 -z-10" aria-hidden="true"></div>
+
+    <div class="mx-auto w-full max-w-[1280px] px-6 pt-12 pb-16 sm:px-10 lg:py-20 xl:px-16">
+      <div class="lw-hero-copy relative max-w-[600px]">
+        <p class="m-0 inline-flex items-center gap-2.5 rounded-full border border-lw-aqua bg-white/80 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-lw-teal shadow-sm">
+          <span class="lw-pulse size-2 rounded-full bg-lw-teal" aria-hidden="true"></span>
+          Counseling &amp; Wellness in Texas
+        </p>
+
+        <h1 id="hero-title" class="m-0 mt-7 font-royal text-[clamp(58px,7.4vw,108px)] font-medium leading-[0.92] tracking-[-0.03em] text-lw-navy">
+          Come <em class="block font-normal italic text-lw-teal">as you are.</em>
+        </h1>
+
+        <p class="m-0 mt-7 max-w-[30rem] text-[19px] leading-[1.65] text-lw-slate sm:text-[20px]">
+          We&apos;ll meet you where you are, and find a way forward, together. Thoughtful, affirming counseling for adults, couples, and families.
+        </p>
+
+        <div class="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
+          <a class="lw-hero-cta group inline-flex items-center gap-3 rounded-full bg-lw-navy py-2 pr-2 pl-6 text-[15px] font-semibold text-white no-underline shadow-[0_14px_30px_-12px_rgba(0,30,75,0.55)] transition hover:bg-lw-teal" href="<?= CONSULTATION ?>">
+            Book a free 15-minute consultation
+            <span class="grid size-10 place-items-center rounded-full bg-lw-aqua text-lw-navy transition group-hover:translate-x-0.5" aria-hidden="true">↗</span>
+          </a>
+          <a class="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/80 px-5 py-3.5 text-[15px] font-semibold text-lw-navy no-underline shadow-[0_10px_24px_-16px_rgba(0,30,75,0.5)] backdrop-blur-md transition hover:bg-white hover:text-lw-teal" href="/careteam/">Meet our counselors <span aria-hidden="true">→</span></a>
+        </div>
+
+        <ul class="m-0 mt-10 flex list-none flex-wrap gap-2.5 p-0 text-[14px] text-lw-navy">
+          <li class="inline-flex items-center gap-2 rounded-full bg-white/75 px-3.5 py-2 backdrop-blur-md"><svg class="size-[17px] text-lw-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Online across Texas</li>
+          <li class="inline-flex items-center gap-2 rounded-full bg-white/75 px-3.5 py-2 backdrop-blur-md"><svg class="size-[17px] text-lw-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>In person in North Fort Worth</li>
+          <li class="inline-flex items-center gap-2 rounded-full bg-white/75 px-3.5 py-2 backdrop-blur-md"><svg class="size-[17px] text-lw-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8.3 7 10 4-1.7 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>Insurance &amp; self-pay</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -147,39 +170,53 @@
     </div>
   </section>
 
-  <section class="sanctuary-banner" id="sanctuary">
-    <?php partial('divider', ['tone' => 'dark']); ?>
-    <div class="sanctuary-backdrop">
-      <img src="/images/atrium-banner.png" alt="LifeWise Calming Atrium Sanctuary" loading="lazy" />
-      <div class="sanctuary-gradient"></div>
-    </div>
-    <div class="sanctuary-content">
-      <div class="sanctuary-prestige-tag"><span>✦</span> THE SANCTUARY EXPERIENCE</div>
-      <h2>A space designed for <em>calm, dignity &amp; clarity.</em></h2>
-      <p>Whether connecting from the privacy of your home across Texas or stepping through our doors in North Fort Worth, our care is anchored in unhurried presence, warmth, and real understanding.</p>
+  <?php
+  $sanctuaryFeatures = [
+      ['Unhurried sessions', 'Care structured with room to breathe, uncompressed by standard clinical rush or sterile environments.', $media['sanctuary-garden']],
+      ['Acoustic privacy', 'Discrete, sound-insulated counseling suites in North Fort Worth with calming natural textures and hospitality.', $media['hero-consultation']],
+      ['Statewide telehealth', 'Bank-grade encrypted, high-fidelity video appointments available across all 254 Texas counties.', $media['hero-stress']],
+  ];
+  ?>
+  <section class="lw-sanctuary relative isolate overflow-hidden" id="sanctuary" aria-labelledby="sanctuary-title">
+    <div class="mx-auto max-w-[1280px] px-6 py-20 sm:px-10 lg:py-28 xl:px-16">
+      <div class="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+        <div>
+          <p class="m-0 inline-flex items-center gap-2.5 text-[12px] font-semibold tracking-[0.18em] text-lw-teal uppercase"><span aria-hidden="true">✦</span> The Sanctuary Experience</p>
+          <h2 id="sanctuary-title" class="m-0 mt-5 font-royal text-[clamp(40px,4.8vw,66px)] leading-[1.04] font-medium tracking-[-0.02em] text-lw-navy">A space designed for <em class="font-normal text-lw-teal italic">calm, dignity &amp; clarity.</em></h2>
+          <p class="m-0 mt-6 max-w-[34rem] text-[17px] leading-[1.75] text-lw-slate">Whether connecting from the privacy of your home across Texas or stepping through our doors in North Fort Worth, our care is anchored in unhurried presence, warmth, and real understanding.</p>
+          <div class="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
+            <a class="lw-hero-cta group inline-flex items-center gap-3 rounded-full bg-lw-navy py-2 pr-2 pl-6 text-[15px] font-semibold text-white no-underline shadow-[0_14px_30px_-12px_rgba(0,30,75,0.55)] transition hover:bg-lw-teal" href="<?= CONSULTATION ?>">
+              Experience thoughtful counseling
+              <span class="grid size-10 place-items-center rounded-full bg-lw-aqua text-lw-navy transition group-hover:translate-x-0.5" aria-hidden="true">↗</span>
+            </a>
+            <a class="lw-link" href="/sanctuary/">Explore the Sanctuary <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="m-0 mt-6 text-[14px] text-lw-slate/80">No waitlists &bull; Complimentary initial conversation</p>
+        </div>
 
-      <div class="sanctuary-features-grid">
-        <div class="sanctuary-feature-card">
-          <div class="feature-icon">✦</div>
-          <h4>Unhurried Sessions</h4>
-          <p>Care structured with room to breathe, uncompressed by standard clinical rush or sterile environments.</p>
-        </div>
-        <div class="sanctuary-feature-card">
-          <div class="feature-icon">✦</div>
-          <h4>Acoustic Privacy</h4>
-          <p>Discrete, sound-insulated counseling suites in North Fort Worth with calming natural textures and hospitality.</p>
-        </div>
-        <div class="sanctuary-feature-card">
-          <div class="feature-icon">✦</div>
-          <h4>Statewide Telehealth</h4>
-          <p>Bank-grade encrypted, high-fidelity video appointments available across all 254 Texas counties.</p>
+        <div class="relative mx-auto w-[calc(100%-2.5rem)] max-w-[440px]">
+          <figure class="lw-sanctuary-arch m-0">
+            <img src="/images/office-sanctuary.jpg" alt="The LifeWise counseling room in North Fort Worth, with two armchairs, soft lamps, and a colorful rug" width="900" height="1125" loading="lazy" />
+          </figure>
+          <div class="absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2.5 rounded-full border border-lw-aqua/60 bg-white/95 px-5 py-3 text-[14px] whitespace-nowrap text-lw-navy shadow-[0_18px_40px_-18px_rgba(0,30,75,0.45)] backdrop-blur">
+            <svg class="size-[17px] text-lw-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            Our North Fort Worth sanctuary
+          </div>
         </div>
       </div>
 
-      <div class="sanctuary-actions">
-        <a class="sanctuary-cta" href="<?= CONSULTATION ?>">Experience thoughtful counseling <b>↗</b></a>
-        <span class="sanctuary-note">No waitlists &bull; Complimentary initial conversation</span>
-      </div>
+      <ul class="m-0 mt-20 grid list-none gap-6 p-0 md:grid-cols-3 lg:mt-24">
+<?php foreach ($sanctuaryFeatures as $i => [$featureTitle, $featureText, $featureImage]): ?>
+        <li class="lw-sanctuary-card">
+          <div class="lw-sanctuary-card-media"><img src="<?= e($featureImage['src']) ?>" alt="<?= e($featureImage['alt']) ?>" loading="lazy" /></div>
+          <div class="p-6 sm:p-7">
+            <span class="text-[12px] font-semibold tracking-[0.18em] text-lw-teal uppercase"><?= num($i + 1) ?></span>
+            <h3 class="m-0 mt-2 font-royal text-[26px] leading-[1.15] font-medium text-lw-navy"><?= e($featureTitle) ?></h3>
+            <p class="m-0 mt-3 text-[15px] leading-[1.7] text-lw-slate"><?= e($featureText) ?></p>
+          </div>
+        </li>
+<?php endforeach; ?>
+      </ul>
     </div>
   </section>
 
@@ -271,11 +308,9 @@
     <a href="https://988lifeline.org/get-help/" target="_blank" rel="noreferrer">988 Lifeline <span>↗</span></a>
   </section>
 
-  <section class="closing">
-    <?php partial('divider', ['tone' => 'dark']); ?>
-    <p class="eyebrow">WHENEVER YOU&apos;RE READY</p>
-    <h2>A small first conversation can help you see what comes next.</h2>
-    <p>No pressure to have everything figured out.</p>
-    <a href="<?= CONSULTATION ?>">Book a free 15-minute consultation <span>↗</span></a>
-  </section>
+  <?php partial('closing', [
+      'title' => 'A small first conversation',
+      'accent' => 'can help you see what comes next.',
+      'text' => 'No pressure to have everything figured out. Bring your questions, and whatever words you have.',
+  ]); ?>
 </main>

@@ -1,0 +1,18 @@
+/*
+ * Closing call to action above the footer (app/partials/closing.php).
+ * Layout and type are Tailwind utilities; this file holds the card and the
+ * light background that leads into the footer.
+ */
+.lw-cta {
+  background: linear-gradient(180deg, #ffffff 0%, #eaf5f6 100%);
+}
+
+.lw-cta-card {
+  position: relative;
+  border: 1px solid rgba(2, 110, 122, 0.14);
+  border-radius: 28px;
+  background:
+    radial-gradient(70% 90% at 0% 0%, rgba(174, 213, 217, 0.35) 0%, rgba(174, 213, 217, 0) 60%),
+    #ffffff;
+  box-shadow: 0 40px 80px -48px rgba(0, 30, 75, 0.45);
+}
