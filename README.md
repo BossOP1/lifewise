@@ -55,6 +55,12 @@ The compiled CSS is committed, so the server needs no Node.js. Rebuild only afte
 
 Upload the project to any PHP host. Point the document root at `public/`. If the host does not allow that, as is common on shared hosting, the root `.htaccess` forwards requests into `public/`. On Apache, `public/.htaccess` routes every page through `index.php`. On Nginx, use `try_files $uri /index.php?$query_string;`.
 
+### Netlify
+
+Netlify cannot run PHP when a page is requested, so the site is pre-rendered when Netlify builds it. `netlify.toml` compiles Tailwind and then runs `php build.php`. That renders every route through `public/index.php` into `dist/<route>/index.html`, writes `dist/404.html`, and copies the public assets. Netlify publishes `dist/`. Redirects for the old Dallas Voyager link and `/category/*` URLs are in `netlify.toml`.
+
+To preview the static build locally, run `php build.php` and then `php -S localhost:8000 -t dist`. `dist/` is generated and ignored by git.
+
 Clean URLs end with a slash. Requests without one, legacy `.html` URLs, and the old `/featured-in-the-dallas-voyager/` link redirect with a 301. Unknown pages return a 404 page.
 
 ## Content and navigation

@@ -1,0 +1,38 @@
+# Netlify serves static files only, so the PHP site is pre-rendered at build time.
+# 1. Compile Tailwind CSS (tailwind/ -> public/assets/css/site.css)
+# 2. Render every page to static HTML with build.php (public/ -> dist/)
+[build]
+  command = "cd tailwind && npm ci && npm run build && cd .. && php build.php"
+  publish = "dist"
+
+[build.environment]
+  PHP_VERSION = "8.3"
+  NODE_VERSION = "20"
+
+# Old feature link -> the article.
+[[redirects]]
+  from = "/featured-in-the-dallas-voyager"
+  to = "/2026/04/09/featured-in-the-dallas-voyager/"
+  status = 301
+
+# Category archive URLs show the reflections archive (same as the PHP router).
+[[redirects]]
+  from = "/category/*"
+  to = "/reflections/"
+  status = 200
+
+# Long-lived caching for static media. CSS and JS use ?v= cache busting.
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.mp4"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
