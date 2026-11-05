@@ -1,0 +1,16 @@
+<?php
+/** @var array $media */
+$tips = [
+    ['Make room for privacy', 'Choose a quiet space where you can talk comfortably and be free from interruptions.'],
+    ['Settle in before you begin', 'Allow a few minutes to check your connection and get comfortable. Headphones may help you create a more private space.'],
+    ['Find the right format', 'We can talk through virtual and in-person options during your consultation and help you explore what fits your life.'],
+];
+?>
+<div class="experience-page sanctuary-page">
+  <?php partial('experience-hero', ['eyebrow' => 'THE SANCTUARY EXPERIENCE', 'title' => 'A little space', 'accent' => 'to settle.', 'description' => 'In person in North Fort Worth or connecting from your own space across Texas, care begins with warmth, dignity, and real understanding.', 'image' => $media['sanctuary-garden']]); ?>
+  <section class="page-section experience-introduction"><div><p class="eyebrow">ROOM TO BREATHE</p><h2>Calm, dignity,<br /><em>and clarity.</em></h2></div><div><p>Counseling gives you a space to slow down, speak openly, and focus on what matters to you. You don’t have to have everything figured out before you arrive.</p><p>Whether you prefer in-person sessions or virtual appointments, we can help you explore the available options and find a provider who fits your needs.</p></div></section>
+  <section class="page-section experience-human sanctuary-room"><figure><img src="/images/office-sanctuary.png" alt="The LifeWise counseling room with two chairs, soft lighting, and warm furnishings" loading="lazy" /></figure><div><p class="eyebrow">IN PERSON / NORTH FORT WORTH</p><h2>A welcoming room.<br /><em>A little time for you.</em></h2><p>In-person counseling is available in North Fort Worth. A complimentary consultation can help you confirm which provider and appointment format may work for you.</p><div class="sanctuary-format-note"><span aria-hidden="true">✦</span><p>In-person availability varies by provider and location. Ask us about the options before scheduling.</p></div><?= button('Learn about in-person counseling') ?></div></section>
+  <section class="page-section experience-principles"><div class="page-section-heading"><div><p class="eyebrow">VIRTUAL COUNSELING THROUGHOUT TEXAS</p><h2>Thoughtful care,<br /><em>where you are.</em></h2></div><p>Online sessions offer another way to connect with your provider while you are physically located in Texas.</p></div><?php partial('numbered-grid', ['items' => $tips, 'class' => 'experience-principle-grid']); ?></section>
+  <section class="page-section sanctuary-contact"><div><p class="eyebrow">PLAN YOUR FIRST STEP</p><h2>We’ll help you<br /><em>find your way.</em></h2><p>Start with a complimentary 15-minute consultation to discuss your needs, provider fit, appointment options, and payment.</p></div><div><a href="/consultation/">Book a free 15-minute consultation <span>↗</span></a><a href="/pricing/">Review insurance &amp; pricing <span>↗</span></a><a href="/frequently-asked-questions/">Read frequently asked questions <span>↗</span></a><a href="mailto:lifewise@lifewisetx.com">lifewise@lifewisetx.com <span>↗</span></a></div></section>
+  <?php partial('closing', ['title' => 'Come as you are.', 'text' => 'There’s room for your story. Start with a conversation and explore care that feels right for you.']); ?>
+</div>

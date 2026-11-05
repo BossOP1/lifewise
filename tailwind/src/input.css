@@ -1,0 +1,45 @@
+/*
+ * LifeWise Tailwind entry point.
+ * Build:  cd tailwind && npm run build   (or `npm run watch` while editing)
+ * Output: public/assets/css/site.css
+ *
+ * Tailwind's Preflight reset is intentionally not imported: the site's
+ * component styles were written against browser defaults, and Preflight
+ * would change headings, lists and buttons inside imported article content.
+ */
+@layer theme, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/* Scan the PHP templates and front-end script for utility classes. */
+@source "../../app";
+@source "../../public/assets/js";
+@source not "../../app/data";
+
+/* LifeWise brand tokens, available as utilities such as text-ink, bg-teal, font-serif. */
+@theme {
+  --color-ink: #0b2d5c;
+  --color-deep: #0b2d5c;
+  --color-muted: #454f59;
+  --color-teal: #0b7f7a;
+  --color-accent: #2c9aa0;
+  --color-sage: #bfe6e8;
+  --color-mist: #e5f5f5;
+  --color-cream: #ffffff;
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-royal: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Haskoy', 'Plus Jakarta', 'Segoe UI', sans-serif;
+}
+
+/* Site component styles, in their original cascade order. */
+@import "./components/styles.css" layer(components);
+@import "./components/theme.css" layer(components);
+@import "./components/refinements.css" layer(components);
+@import "./components/navigation.css" layer(components);
+@import "./components/sections.css" layer(components);
+@import "./components/pages.css" layer(components);
+@import "./components/service-pages.css" layer(components);
+@import "./components/navigation-pages.css" layer(components);
+@import "./components/readability.css" layer(components);

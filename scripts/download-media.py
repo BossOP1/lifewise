@@ -7,7 +7,7 @@ import json
 import hashlib
 
 ROOT = Path(__file__).resolve().parents[1]
-media = json.loads((ROOT / 'src/media.json').read_text(encoding='utf-8'))
+media = json.loads((ROOT / 'app/data/media.json').read_text(encoding='utf-8'))
 
 def download(item):
     name, data = item

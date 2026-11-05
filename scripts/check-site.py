@@ -1,36 +1,37 @@
-"""Check the production site with an isolated headless browser.
+"""Check the PHP site with an isolated headless browser.
 
-Requires Python Playwright and its Chromium browser (already installed on this workstation).
+Starts PHP's built-in server against public/, then drives Chromium.
+Requires PHP 8.1+, Python Playwright and its Chromium browser.
 """
 from pathlib import Path
-from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
-from functools import partial
-from threading import Thread
 from playwright.sync_api import sync_playwright
 import json
 import os
+import socket
+import subprocess
+import time
 
 ROOT = Path(__file__).resolve().parents[1]
-pages = json.loads((ROOT / 'src/content.json').read_text(encoding='utf-8'))
-navigation_pages = json.loads((ROOT / 'src/navigation-pages.json').read_text(encoding='utf-8'))
+pages = json.loads((ROOT / 'app/data/content.json').read_text(encoding='utf-8'))
+navigation_pages = json.loads((ROOT / 'app/data/navigation-pages.json').read_text(encoding='utf-8'))
 routes = ['/', '/reflections/', *pages, *navigation_pages]
 core = ['/', '/reflections/', *navigation_pages, *[route for route, data in pages.items() if not data['article']]]
 errors = []
 
-class QuietHandler(SimpleHTTPRequestHandler):
-    def log_message(self, *_args):
-        pass
-
-    def copyfile(self, source, outputfile):
-        try:
-            super().copyfile(source, outputfile)
-        except (BrokenPipeError, ConnectionResetError):
-            # Route checks intentionally cancel video/image streams on navigation.
-            pass
-
-server = ThreadingHTTPServer(('127.0.0.1', 0), partial(QuietHandler, directory=str(ROOT / 'dist')))
-Thread(target=server.serve_forever, daemon=True).start()
-base = f'http://127.0.0.1:{server.server_port}'
+with socket.socket() as probe:
+    probe.bind(('127.0.0.1', 0))
+    port = probe.getsockname()[1]
+server = subprocess.Popen(
+    ['php', '-S', f'127.0.0.1:{port}', '-t', str(ROOT / 'public'), str(ROOT / 'public/index.php')],
+    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+)
+base = f'http://127.0.0.1:{port}'
+for _ in range(50):
+    try:
+        socket.create_connection(('127.0.0.1', port), timeout=0.2).close()
+        break
+    except OSError:
+        time.sleep(0.1)
 try:
     with sync_playwright() as p:
         options = {'headless': True}
@@ -52,7 +53,7 @@ try:
                 if href.startswith('/') and not href.startswith('/#') and not href.endswith('.pdf'):
                     path = href.split('#')[0]
                     assert path in routes, f'{route}: unresolved link {href}'
-        print(f'PASS: {len(routes)} production routes, headings, local links, and desktop widths.', flush=True)
+        print(f'PASS: {len(routes)} routes, headings, local links, and desktop widths.', flush=True)
 
         for width in [320, 390, 768]:
             page.set_viewport_size({'width': width, 'height': 844})
@@ -80,15 +81,15 @@ try:
         page.get_by_role('navigation', name='Main navigation').get_by_role('link', name='Sanctuary', exact=True).click()
         page.wait_for_url('**/sanctuary/')
         assert 'A little space' in page.locator('h1').inner_text()
-        print('PASS: client navigation, profile links, browser Back, and dedicated navbar pages.', flush=True)
+        print('PASS: navigation, profile links, browser Back, and dedicated navbar pages.', flush=True)
 
         page.goto(base + '/reflections/', wait_until='load')
-        assert page.locator('.journal-card').count() == 9
+        assert page.locator('.journal-card:visible').count() == 9
         page.get_by_role('button', name='Load more reflections').click()
-        assert page.locator('.journal-card').count() == 18
+        assert page.locator('.journal-card:visible').count() == 18
         page.get_by_role('searchbox', name='Search reflections').fill('Why Counselors Need Therapy Too')
-        assert page.locator('.journal-card').count() == 1
-        page.locator('.journal-card').click()
+        assert page.locator('.journal-card:visible').count() == 1
+        page.locator('.journal-card:visible').click()
         page.wait_for_url('**/2026/10/01/why-counselors-need-therapy-too/')
         assert 'Counselors are people first' in page.locator('.page-prose').inner_text()
         page.goto(base + '/reflections/', wait_until='load')
@@ -97,7 +98,7 @@ try:
         page.get_by_role('searchbox', name='Search reflections').fill('does-not-exist-12345')
         assert page.get_by_role('heading', name='No reflections found.').is_visible()
         page.get_by_role('button', name='Show all reflections').click()
-        assert page.locator('.journal-card').count() == 9
+        assert page.locator('.journal-card:visible').count() == 9
         print('PASS: archive search, category filters, pagination, empty state, and article reading.', flush=True)
 
         page.goto(base + '/frequently-asked-questions/', wait_until='load')
@@ -106,7 +107,7 @@ try:
         question.locator('summary').click()
         assert question.get_attribute('open') is not None
         page.goto(base + '/consultation/', wait_until='load')
-        assert page.get_by_role('link', name='Choose a consultation time').get_attribute('href') == 'https://calendar.app.google/nyiYDRBgML4yuVa39'
+        assert page.get_by_role('link', name='Open the booking calendar').get_attribute('href') == 'https://calendar.app.google/nyiYDRBgML4yuVa39'
         page.set_viewport_size({'width': 390, 'height': 844})
         page.get_by_role('button', name='Open navigation').click()
         assert page.get_by_role('button', name='Close navigation').get_attribute('aria-expanded') == 'true'
@@ -151,4 +152,4 @@ try:
         browser.close()
         print('PASS: no browser JavaScript errors or failed local requests.', flush=True)
 finally:
-    server.shutdown()
+    server.terminate()

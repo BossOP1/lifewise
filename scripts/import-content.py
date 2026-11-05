@@ -121,5 +121,5 @@ for file in FILES:
         'categories': [a.get_text(' ', strip=True) for a in category.select('a')] if category else [],
         'article': file.stem.startswith('2026__'),
     }
-(ROOT / 'src' / 'content.json').write_text(json.dumps(pages, ensure_ascii=False, indent=2), encoding='utf-8')
+(ROOT / 'app' / 'data' / 'content.json').write_text(json.dumps(pages, ensure_ascii=False, indent=2), encoding='utf-8')
 print(f'Imported {len(pages)} pages and {len(list(assets.iterdir()))} reference assets.')

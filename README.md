@@ -1,31 +1,74 @@
 # LifeWise Counseling & Wellness website
 
-The existing homepage and the remaining LifeWise pages share the brand's deep navy, teal, and white palette. Content and reference images come from the supplied `../scraped_site` clone.
+A PHP website styled with Tailwind CSS. The pages share the brand's deep navy, teal, and white palette. Content and reference images come from the supplied `../scraped_site` clone.
 
 The site includes services and seven service detail pages; a care team directory and five profiles; consultation booking; insurance and pricing; FAQs; referral partners; supervision and career development; five client information pages; and a searchable reflections archive with 35 full articles.
 
+## Project layout
+
+```
+app/                  PHP application (not web-accessible)
+  bootstrap.php       Loads data and helpers
+  data.php            Team, services, pricing, and other site data
+  helpers.php         Escaping, routing, date, and HTML-parsing helpers
+  data/               content.json, media.json, navigation-pages.json
+  partials/           Layout, header, footer, hero, closing, cards
+  pages/              One template per page type
+public/               Web root
+  index.php           Front controller and router
+  .htaccess           Apache rewrite to index.php
+  assets/css/site.css Compiled Tailwind output (committed, do not edit by hand)
+  assets/js/site.js   Navigation, scroll effects, reflections filters
+  images/ fonts/ documents/ *.mp4
+tailwind/             Tailwind CSS source and build tooling
+  src/input.css       Entry point: theme tokens, sources, component layers
+  src/components/     Site component styles
+scripts/              Optional content import and site checks
+```
+
 ## Run locally
 
-Install Node.js, open a terminal in this folder, then run `npm install` once and `npm run dev`. Vite opens a local development server so React modules and site assets are served with browser-safe URLs.
+Requires PHP 8.1 or newer. From this folder run:
 
-## Build for hosting
+```
+php -S localhost:8000 -t public public/index.php
+```
 
-Run `npm run build`. The generated `dist` folder is a static site; upload its contents to a static host. The build creates a separate `index.html` for each route, so direct page visits work without requiring a single-page application rewrite. A host must serve directory index files, as most static hosts do. Double-clicking `index.html` directly (`file://`) is not a reliable way to run a React app because browsers restrict JavaScript modules.
+Then open http://localhost:8000.
 
-React and Vite are declared in `package.json` and installed locally by `npm install`. Google Fonts are optional and fall back to system serif/sans fonts.
+## Styles (Tailwind CSS)
+
+Styles live in `tailwind/` and compile to `public/assets/css/site.css`. Edit the files in `tailwind/src`, then rebuild:
+
+```
+cd tailwind
+npm install      # once
+npm run build    # minified build
+npm run watch    # rebuild on change while developing
+```
+
+Tailwind v4 scans `app/` and `public/assets/js/` for utility classes, so you can use utilities such as `hidden`, `flex`, `text-ink`, or `bg-teal` directly in PHP templates. Brand colors and fonts are defined as theme tokens in `tailwind/src/input.css`. The existing component styles are imported into the `components` layer, so utilities override them when both apply. Tailwind's Preflight reset is not included, because the component styles and imported article content rely on browser defaults.
+
+The compiled CSS is committed, so the server needs no Node.js. Rebuild only after changing styles or adding utility classes.
+
+## Deploy
+
+Upload the project to any PHP host. Point the document root at `public/`. If the host does not allow that, as is common on shared hosting, the root `.htaccess` forwards requests into `public/`. On Apache, `public/.htaccess` routes every page through `index.php`. On Nginx, use `try_files $uri /index.php?$query_string;`.
+
+Clean URLs end with a slash. Requests without one, legacy `.html` URLs, and the old `/featured-in-the-dallas-voyager/` link redirect with a 301. Unknown pages return a 404 page.
 
 ## Content and navigation
 
-Homepage markup is in `src/site.jsx`. Interior layouts and client navigation are in `src/pages.jsx`, with styles in `src/pages.css`. The source content is bundled in `src/content.json`; copied reference images live in `public/images/reference`.
+The homepage is `app/pages/home.php`. Interior pages are chosen in `public/index.php` and rendered from `app/pages`. Imported page and article HTML is in `app/data/content.json`. Copied reference images live in `public/images/reference`.
 
-The seven service detail pages use `src/service-pages.jsx` and `src/service-pages.css` to present the reference content as image-led introductions, topic panels, editorial sections, counseling approach cards, and closing invitations. The dedicated Our Approach and Sanctuary pages are in `src/navigation-pages.jsx`, with metadata in `src/navigation-pages.json`. Every primary navbar item opens its own page. The shared framed navbar and service directory, which open on desktop hover and mobile tap, are in `src/navigation.jsx` and `src/navigation.css`. The homepage Sanctuary spans the full viewport width, with its content centered inside.
+The seven service detail pages use `app/pages/service-detail.php`. It parses the imported HTML with PHP's DOM extension into image-led introductions, topic panels, editorial sections, counseling approach cards, and closing invitations. The FAQ page splits its imported HTML into question-and-answer disclosures the same way. The shared navbar and service directory are in `app/partials/header.php`. They open on desktop hover and on mobile tap, driven by `public/assets/js/site.js`.
 
-The site uses 26 people-focused Unsplash photographs and one garden photograph for the Sanctuary setting, all stored locally. The manifest is in `src/media.json`, images are in `public/images/unsplash`, and sources are recorded in `docs/media-credits.md`. Articles without an original photo use text cards instead of a repeated fallback image. Logos and provider portraits retain their consistent identities.
+The site uses 26 people-focused Unsplash photographs and one garden photograph, all stored locally. The manifest is `app/data/media.json`, the images are in `public/images/unsplash`, and sources are recorded in `docs/media-credits.md`.
 
-Internal links stay in the local website. The consultation page opens the original Google booking calendar. Existing provider scheduling links remain in their profiles. No backend or contact-form submission service is required.
+Internal links stay on the local website. The consultation page opens the original Google booking calendar. No backend form submission is required.
 
-`python scripts/import-content.py` refreshes imported content and images from the supplied clone. It requires Beautiful Soup (`beautifulsoup4`). This is optional; normal development and builds use the checked-in content and do not require Python. WordPress attachment pages and duplicate archive pagination snapshots are represented by their images and the combined reflections archive.
+`python scripts/import-content.py` refreshes imported content and images from the supplied clone. It requires Beautiful Soup (`beautifulsoup4`). This is optional, because the site uses the checked-in content.
 
 ## Verification
 
-After a production build, `python scripts/check-site.py` runs an isolated headless browser against `dist`. It requires Python Playwright and Chromium. It checks all 64 routes, local links, browser errors, responsive widths, navigation and browser Back, search and category filters, load-more behavior, FAQs, and the original consultation calendar link. Visual review captures are in `docs/qa`.
+`python scripts/check-site.py` starts PHP's built-in server and runs an isolated headless browser against it. It requires PHP, Python Playwright, and Chromium. It checks all routes, local links, browser errors, responsive widths, navigation and browser Back, search and category filters, load-more behavior, FAQs, and the consultation calendar link. Visual review captures are in `docs/qa`.

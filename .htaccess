@@ -1,0 +1,9 @@
+# Only needed when the web server's document root is this project folder
+# (common on shared hosting). Everything is served from public/, so app/,
+# tailwind/, scripts/ and docs/ are never reachable from the web.
+# If you can point the document root at public/ directly, this file is unused.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

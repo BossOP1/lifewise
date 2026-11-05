@@ -1,0 +1,14 @@
+{
+  "name": "lifewise-tailwind",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Tailwind CSS build for the LifeWise PHP site. Outputs ../public/assets/css/site.css.",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ../public/assets/css/site.css --minify",
+    "watch": "tailwindcss -i ./src/input.css -o ../public/assets/css/site.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.14",
+    "tailwindcss": "^4.1.14"
+  }
+}
