@@ -27,6 +27,13 @@
     header?.classList.toggle('is-scrolled', progress > 0);
     updateConcierge();
   };
+  // Homepage: the transparent navbar overlays the hero, so the hero needs the header's height.
+  const setHeaderHeight = () => {
+    if (header) document.documentElement.style.setProperty('--lw-header-h', `${header.offsetHeight}px`);
+  };
+  setHeaderHeight();
+  window.addEventListener('resize', setHeaderHeight, { passive: true });
+
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 

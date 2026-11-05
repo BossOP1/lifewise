@@ -1,0 +1,54 @@
+/*
+ * Homepage navbar: transparent over the hero video at the top of the page,
+ * returning to the solid white pill once the visitor scrolls (or opens the menu).
+ * site.js sets --lw-header-h to the header's real height.
+ */
+.site-header.site-header--overlay {
+  transition: background-color .35s ease, box-shadow .35s ease, backdrop-filter .35s ease;
+}
+.site-header--overlay .header-inner {
+  transition: background-color .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+
+.site-header.site-header--overlay:not(.is-scrolled):not(:has(.nav-links.open)) {
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.site-header--overlay:not(.is-scrolled):not(:has(.nav-links.open)) .header-inner {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* Desktop: the links sit on a soft frosted strip so they stay readable over any part of the video. */
+@media (min-width: 1201px) {
+  .site-header--overlay .nav-links {
+    flex: 0 0 auto;
+    margin-inline: auto;
+    transition: background-color .35s ease, box-shadow .35s ease;
+    border-radius: 999px;
+  }
+  .site-header--overlay:not(.is-scrolled) .nav-links {
+    padding: 10px 26px;
+    background: rgba(255, 255, 255, 0.62);
+    box-shadow: 0 10px 30px -18px rgba(0, 30, 75, 0.45);
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* Pull the hero up underneath the header so the video starts at the top of the page. */
+.site-header--overlay + main > .lw-hero:first-child {
+  margin-top: calc(-1 * var(--lw-header-h, 108px));
+  padding-top: var(--lw-header-h, 108px);
+}
+@media (max-width: 1023px) {
+  .site-header--overlay + main > .lw-hero:first-child {
+    margin-top: calc(-1 * var(--lw-header-h, 90px));
+    padding-top: var(--lw-header-h, 90px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header.site-header--overlay, .site-header--overlay .header-inner { transition: none; }
+}

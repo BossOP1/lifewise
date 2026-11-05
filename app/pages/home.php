@@ -5,7 +5,7 @@
 /** @var array $homeReflections */
 ?>
 <main id="home" tabindex="-1">
-  <section class="lw-hero relative isolate flex min-h-[760px] items-start overflow-hidden sm:min-h-[720px] lg:min-h-[clamp(640px,calc(100svh-148px),880px)] lg:items-center" aria-labelledby="hero-title">
+  <section class="lw-hero relative isolate flex min-h-[700px] items-start overflow-hidden sm:min-h-[720px] lg:min-h-[clamp(720px,100svh,960px)] lg:items-center" aria-labelledby="hero-title">
     <div class="absolute inset-0 -z-20" aria-hidden="true">
       <video class="lw-hero-video size-full object-cover" autoplay muted loop playsinline preload="metadata" poster="/images/hero-meadow-poster.jpg" tabindex="-1" data-hero-video>
         <source src="/assets/bg-video/4909470-hd_1920_1080_25fps.mp4" type="video/mp4" />
@@ -15,12 +15,8 @@
 
     <div class="mx-auto w-full max-w-[1280px] px-6 pt-12 pb-16 sm:px-10 lg:py-20 xl:px-16">
       <div class="lw-hero-copy relative max-w-[600px]">
-        <p class="m-0 inline-flex items-center gap-2.5 rounded-full border border-lw-aqua bg-white/80 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-lw-teal shadow-sm">
-          <span class="lw-pulse size-2 rounded-full bg-lw-teal" aria-hidden="true"></span>
-          Counseling &amp; Wellness in Texas
-        </p>
 
-        <h1 id="hero-title" class="m-0 mt-7 font-royal text-[clamp(58px,7.4vw,108px)] font-medium leading-[0.92] tracking-[-0.03em] text-lw-navy">
+        <h1 id="hero-title" class="m-0 font-royal text-[clamp(58px,7.4vw,108px)] font-medium leading-[0.92] tracking-[-0.03em] text-lw-navy">
           Come <em class="block font-normal italic text-lw-teal">as you are.</em>
         </h1>
 
@@ -36,11 +32,6 @@
           <a class="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/80 px-5 py-3.5 text-[15px] font-semibold text-lw-navy no-underline shadow-[0_10px_24px_-16px_rgba(0,30,75,0.5)] backdrop-blur-md transition hover:bg-white hover:text-lw-teal" href="/careteam/">Meet our counselors <span aria-hidden="true">→</span></a>
         </div>
 
-        <ul class="m-0 mt-10 flex list-none flex-wrap gap-2.5 p-0 text-[14px] text-lw-navy">
-          <li class="inline-flex items-center gap-2 rounded-full bg-white/75 px-3.5 py-2 backdrop-blur-md"><svg class="size-[17px] text-lw-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Online across Texas</li>
-          <li class="inline-flex items-center gap-2 rounded-full bg-white/75 px-3.5 py-2 backdrop-blur-md"><svg class="size-[17px] text-lw-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>In person in North Fort Worth</li>
-          <li class="inline-flex items-center gap-2 rounded-full bg-white/75 px-3.5 py-2 backdrop-blur-md"><svg class="size-[17px] text-lw-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8.3 7 10 4-1.7 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>Insurance &amp; self-pay</li>
-        </ul>
       </div>
     </div>
   </section>

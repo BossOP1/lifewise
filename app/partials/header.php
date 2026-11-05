@@ -3,7 +3,7 @@
 /** @var array $services */
 $isService = $path === '/services/' || find_by($services, 'path', $path) !== null;
 ?>
-    <header class="site-header" data-site-header>
+    <header class="site-header<?= $path === '/' ? ' site-header--overlay' : '' ?>" data-site-header>
       <div class="header-inner">
         <a class="brand" href="/" aria-label="LifeWise home"><img src="/images/lifewise-logo.png" alt="LifeWise Counseling and Wellness" /></a>
         <nav id="main-navigation" aria-label="Main navigation" class="nav-links">
