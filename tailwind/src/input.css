@@ -55,4 +55,6 @@
 @import "./components/cta.css" layer(components);
 @import "./components/sanctuary.css" layer(components);
 @import "./components/connect.css" layer(components);
+@import "./components/service-hero-light.css" layer(components);
 @import "./components/header-overlay.css" layer(components);
+@import "./components/type-scale.css" layer(components);

@@ -173,8 +173,8 @@
       <div class="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
         <div>
           <p class="m-0 inline-flex items-center gap-2.5 text-[12px] font-semibold tracking-[0.18em] text-lw-teal uppercase"><span aria-hidden="true">✦</span> The Sanctuary Experience</p>
-          <h2 id="sanctuary-title" class="m-0 mt-5 font-royal text-[clamp(40px,4.8vw,66px)] leading-[1.04] font-medium tracking-[-0.02em] text-lw-navy">A space designed for <em class="font-normal text-lw-teal italic">calm, dignity &amp; clarity.</em></h2>
-          <p class="m-0 mt-6 max-w-[34rem] text-[17px] leading-[1.75] text-lw-slate">Whether connecting from the privacy of your home across Texas or stepping through our doors in North Fort Worth, our care is anchored in unhurried presence, warmth, and real understanding.</p>
+          <h2 id="sanctuary-title" class="m-0 mt-5 font-royal type-section text-lw-navy">A space designed for <em class="font-normal text-lw-teal italic">calm, dignity &amp; clarity.</em></h2>
+          <p class="m-0 mt-6 max-w-[34rem] type-lead text-lw-slate">Whether connecting from the privacy of your home across Texas or stepping through our doors in North Fort Worth, our care is anchored in unhurried presence, warmth, and real understanding.</p>
           <div class="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
             <a class="lw-hero-cta group inline-flex items-center gap-3 rounded-full bg-lw-navy py-2 pr-2 pl-6 text-[15px] font-semibold text-white no-underline shadow-[0_14px_30px_-12px_rgba(0,30,75,0.55)] transition hover:bg-lw-teal" href="<?= CONSULTATION ?>">
               Experience thoughtful counseling
@@ -202,8 +202,8 @@
           <div class="lw-sanctuary-card-media"><img src="<?= e($featureImage['src']) ?>" alt="<?= e($featureImage['alt']) ?>" loading="lazy" /></div>
           <div class="p-6 sm:p-7">
             <span class="text-[12px] font-semibold tracking-[0.18em] text-lw-teal uppercase"><?= num($i + 1) ?></span>
-            <h3 class="m-0 mt-2 font-royal text-[26px] leading-[1.15] font-medium text-lw-navy"><?= e($featureTitle) ?></h3>
-            <p class="m-0 mt-3 text-[15px] leading-[1.7] text-lw-slate"><?= e($featureText) ?></p>
+            <h3 class="m-0 mt-2 font-royal type-card text-lw-navy"><?= e($featureTitle) ?></h3>
+            <p class="m-0 mt-3 text-[16px] leading-[1.7] text-lw-slate"><?= e($featureText) ?></p>
           </div>
         </li>
 <?php endforeach; ?>
@@ -284,14 +284,14 @@
     <div class="mx-auto grid w-full max-w-[1280px] gap-12 px-5 py-16 sm:px-10 lg:grid-cols-2 lg:gap-0 lg:py-24 xl:px-16">
       <div class="lg:pr-16">
         <span class="text-[12px] font-bold tracking-[0.16em] text-lw-teal">FOR PROFESSIONALS &amp; FUTURE COUNSELORS</span>
-        <h2 class="m-0 mt-4 font-royal text-[clamp(32px,3.6vw,46px)] leading-[1.05] font-semibold tracking-[-0.02em] text-lw-navy">Let&apos;s make a <em class="font-normal italic text-lw-teal">thoughtful connection.</em></h2>
+        <h2 class="m-0 mt-4 font-royal type-sub text-lw-navy">Let&apos;s make a <em class="font-normal italic text-lw-teal">thoughtful connection.</em></h2>
         <span class="mt-5 block max-w-[500px] text-[16px] leading-[1.75] text-lw-slate">Ask us about professional referrals, LPC supervision, and counselor development. We&apos;ll share the right next steps before you send any client information.</span>
         <a class="lw-connect-link mt-8" href="<?= PROFESSIONAL_MAIL ?>">Contact LifeWise <span aria-hidden="true">↗</span></a>
       </div>
 
       <div class="lw-connect-crisis lg:pl-16" aria-labelledby="crisis-title">
         <span class="text-[12px] font-bold tracking-[0.16em] text-lw-teal">NEED SUPPORT RIGHT NOW?</span>
-        <h2 id="crisis-title" class="m-0 mt-4 font-royal text-[clamp(28px,2.8vw,36px)] leading-[1.1] font-semibold text-lw-navy">Help is available any time, day or night.</h2>
+        <h2 id="crisis-title" class="m-0 mt-4 font-royal type-sub text-lw-navy">Help is available any time, day or night.</h2>
         <div class="mt-7">
           <a class="lw-crisis-row" href="tel:911"><b>911</b><span>If you&apos;re in immediate danger or facing a medical emergency</span><i aria-hidden="true">↗</i></a>
           <a class="lw-crisis-row" href="tel:988"><b>988</b><span>If you or someone you know is in crisis, call or text</span><i aria-hidden="true">↗</i></a>

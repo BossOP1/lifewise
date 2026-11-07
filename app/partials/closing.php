@@ -19,7 +19,7 @@ $label ??= $professional ? 'Contact LifeWise' : 'Book a free 15-minute consultat
         <p class="m-0 inline-flex items-center gap-2.5 text-[12px] font-semibold tracking-[0.18em] text-lw-teal uppercase">
           <span class="lw-pulse size-2 rounded-full bg-lw-teal" aria-hidden="true"></span><?= e($eyebrow) ?>
         </p>
-        <h2 id="cta-title" class="m-0 mt-3 font-royal text-[clamp(30px,3.2vw,44px)] leading-[1.1] font-medium tracking-[-0.015em] text-lw-navy">
+        <h2 id="cta-title" class="m-0 mt-3 font-royal type-section text-lw-navy">
           <?= e($title) ?> <em class="font-normal text-lw-teal italic"><?= e($accent) ?></em>
         </h2>
         <p class="m-0 mt-3 max-w-[34rem] text-[16px] leading-[1.65] text-lw-slate"><?= e($text) ?></p>
@@ -39,7 +39,7 @@ $label ??= $professional ? 'Contact LifeWise' : 'Book a free 15-minute consultat
           Call 817.602.8520
         </a>
 <?php if (!$professional): ?>
-        <p class="m-0 text-center text-[13px] text-lw-slate/80 sm:text-left lg:text-center">Complimentary &bull; 15 minutes</p>
+        <p class="m-0 text-center text-[14px] text-lw-slate/80 sm:text-left lg:text-center">Complimentary &bull; 15 minutes</p>
 <?php endif; ?>
       </div>
     </div>

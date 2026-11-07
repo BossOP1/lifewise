@@ -86,7 +86,7 @@
 .page-prose h3 { font-size: 28px; margin: 35px 0 18px; }
 .page-prose h4 { font-size: 23px; margin: 30px 0 14px; }
 .page-prose p { margin: 0 0 20px; }
-.page-prose strong { color: #454f59; font-weight: 600; }
+.page-prose strong { color: #3d4a5c; font-weight: 600; }
 .page-prose a { color: var(--deep); text-decoration-color: var(--accent); text-underline-offset: 4px; }
 .page-prose a:hover { color: var(--accent-strong); }
 .page-prose ul,.page-prose ol { padding-left: 24px; margin-block: 18px 28px; }

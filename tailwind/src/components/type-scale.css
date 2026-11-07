@@ -1,0 +1,119 @@
+/*
+ * One heading scale for the whole site. Loaded last, and prefixed with `main`
+ * so it outranks the older per-section sizes in the legacy stylesheets.
+ *   Section  – the main heading of each section
+ *   Sub      – paired or secondary headings, and headings inside long-form text
+ *   Card     – titles on cards, list items and people
+ */
+:root {
+  --type-section: clamp(38px, calc(3.2vw + 12px), 56px);
+  --type-sub: clamp(30px, calc(1.6vw + 18px), 40px);
+  --type-card: clamp(22px, calc(0.8vw + 17px), 28px);
+}
+
+.type-section,
+main .intro h2,
+main .section-head h2,
+main .team-heading h2,
+main .coverage h2,
+main .faq-heading h2,
+main .closing h2,
+main .page-section-heading h2,
+main .experience-introduction h2,
+main .experience-human h2,
+main .sanctuary-contact h2,
+main .service-intro-heading h2,
+main .service-experience-heading h2,
+main .service-counseling h2,
+main .service-more-heading h2,
+main .service-ending h2,
+main .service-related h2,
+main #sanctuary .sanctuary-content h2,
+main .page-section > div > h2 {
+  font-size: var(--type-section);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.type-sub,
+main .page-prose h2,
+main .service-story h2,
+main .consultation-detail h3 {
+  font-size: var(--type-sub);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+}
+
+.type-card,
+main .area-card h3,
+main .journal-card h2,
+main .provider-card h2,
+main .service-page-card h3,
+main .reflection-card h3,
+main .consultation-steps h3,
+main .experience-principle-grid h3,
+main .experience-process h3,
+main .page-feature h3,
+main .insurance-page-card h3,
+main .pricing-page-card h3,
+main .service-methods h3,
+main .service-more-grid h3,
+main .team-person-copy h3,
+main .coverage-card h3 {
+  font-size: var(--type-card);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/*
+ * Paragraph scale.
+ *   Lead  – the intro paragraph under a page or section title (17px, 16px on phones)
+ *   Body  – all other reading text, including card descriptions (16px)
+ *   Note  – small supporting lines such as "Complimentary • 15 minutes" (14px)
+ * One grey (the logo slate) for all secondary text.
+ */
+:root { --muted: #3d4a5c; }
+
+.type-lead,
+main .page-lead,
+main .intro-copy,
+main .service-hero-description {
+  font-size: 17px;
+  line-height: 1.8;
+}
+@media (max-width: 760px) {
+  .type-lead,
+  main .page-lead,
+  main .intro-copy,
+  main .service-hero-description { font-size: 16px; }
+}
+
+main .profile-intro p,
+main .page-sidebar-note,
+main .page-sidebar-note p,
+main .sanctuary-format-note p,
+main .insurer-list li {
+  font-size: 16px;
+}
+
+main .service-hero-note,
+main .service-topics-panel > p,
+main .service-ending-note,
+main .consultation-note {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* FAQ questions: one style on the homepage, service pages and the FAQ page. */
+main .faq-list summary,
+main .page-faq-list summary {
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0;
+  color: #001e4b;
+}

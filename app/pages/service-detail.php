@@ -114,6 +114,22 @@ $action = fn (string $label = 'Start a conversation', bool $light = false) => '<
   <section class="service-more service-section"><div class="service-more-heading"><p class="eyebrow">CARE THAT SEES THE WHOLE PERSON</p><h2>There’s more to you<br /><em>than what brings you here.</em></h2></div><div class="service-more-grid"><?php foreach ($after as $section): ?><article id="<?= e($section['id']) ?>"><span class="service-more-mark" aria-hidden="true">✧</span><h3><?= e($section['title']) ?></h3><?= $richBlocks($section['nodes']) ?></article><?php endforeach; ?></div></section>
 <?php endif; ?>
 
+<?php $faqs = array_merge($serviceFaqs[$serviceItem['path']] ?? [], $serviceFaqShared); ?>
+  <section class="faq service-faq" id="faq" aria-labelledby="service-faq-title">
+    <?= $botanicalRule() ?>
+    <div class="faq-heading">
+      <p class="eyebrow">QUESTIONS ABOUT <?= e(mb_strtoupper($serviceItem['title'])) ?></p>
+      <h2 id="service-faq-title">Good questions. <em>Clear answers.</em></h2>
+      <a class="under-link" href="/frequently-asked-questions/">More frequently asked questions <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="faq-list">
+<?php foreach ($faqs as $i => [$q, $a]): ?>
+      <details<?= $i === 0 ? ' open' : '' ?>><summary><?= e($q) ?></summary><p><?= e($a) ?></p></details>
+<?php endforeach; ?>
+    </div>
+    <script type="application/ld+json"><?= json_encode(['@context' => 'https://schema.org', '@type' => 'FAQPage', 'mainEntity' => array_map(fn ($f) => ['@type' => 'Question', 'name' => $f[0], 'acceptedAnswer' => ['@type' => 'Answer', 'text' => $f[1]]], $faqs)], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) ?></script>
+  </section>
+
   <section class="service-ending service-section">
     <?= $botanicalRule() ?>
     <p class="eyebrow">WHENEVER YOU’RE READY</p><h2><?= e($closing['title']) ?></h2><?= $richBlocks($closingNodes) ?><?= $action('Book a free 15-minute consultation') ?><p class="service-ending-note">A small first conversation. No pressure to have everything figured out.</p>

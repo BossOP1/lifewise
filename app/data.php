@@ -126,3 +126,46 @@ function find_by(array $list, string $key, string $value): ?array
     foreach ($list as $item) if (($item[$key] ?? null) === $value) return $item;
     return null;
 }
+
+/** Service page FAQs: three service-specific questions, then the shared practical ones. */
+$serviceFaqShared = [
+    ['Do you offer online and in-person sessions?', 'Yes. LifeWise offers secure telehealth sessions throughout Texas, and in-person counseling in select locations, including North Fort Worth.'],
+    ['How do I get started?', 'Book a complimentary 15-minute consultation. We’ll talk briefly about what you’re looking for and help you find the member of our care team who may be the best fit.'],
+];
+$serviceFaqs = [
+    '/anxiety-and-depression/' => [
+        ['What if I’m not sure whether it’s anxiety or depression?', 'You don’t need a label to begin. You may simply know that you don’t feel like yourself anymore, and that is enough. Counseling can help you understand what’s happening beneath the symptoms.'],
+        ['What does counseling for anxiety and depression look like?', 'Together we look at the triggers and patterns behind how you feel, build practical ways to manage stress and overwhelm, and explore the thoughts and habits that may no longer be helping.'],
+        ['Anxiety doesn’t always look like panic for me. Can you still help?', 'Yes. Anxiety can look like functioning well on the outside while your mind and body stay on alert, and depression can look like exhaustion or numbness rather than sadness. All of that is welcome here.'],
+    ],
+    '/neurodivergence/' => [
+        ['Do I need a formal diagnosis to get support?', 'No. Whether you have a diagnosis, are exploring one, or are simply curious about how your brain works, you are welcome to begin.'],
+        ['Will counseling try to change how my brain works?', 'No. Our approach is affirming. Rather than asking you to fit a mold, we work with your brain to find strategies and ways of living that suit you.'],
+        ['What kinds of things can we work on?', 'Common topics include ADHD, masking and unmasking, sensory needs, executive functioning, burnout, and understanding your own ways of being.'],
+    ],
+    '/trauma/' => [
+        ['Do I have to talk about my trauma in detail?', 'No. Counseling does not require you to relive or describe traumatic experiences before you are ready. We can focus on stabilization, regulation, coping skills, patterns, and current concerns.'],
+        ['What if I’m not sure what I went through “counts” as trauma?', 'You don’t need to prove anything to begin. If something still affects how you feel, react, or connect with others, it deserves care and attention.'],
+        ['Do you work with first responders and veterans?', 'Yes. We provide trauma-informed counseling for first responders, veterans, military members, dispatchers, and their families.'],
+    ],
+    '/relationships/' => [
+        ['Can I come to counseling on my own?', 'Yes. Many people work on relationship patterns individually. We also offer couples and family counseling when everyone would like to take part.'],
+        ['What if my partner isn’t sure about counseling?', 'That’s common. You can start on your own, and a complimentary consultation can help you both understand what sessions might look like before deciding.'],
+        ['Is this only for romantic relationships?', 'No. We support individuals, couples, and families with communication, conflict, trust, and connection in all kinds of relationships.'],
+    ],
+    '/stress/' => [
+        ['How do I know if it’s stress or burnout?', 'Stress often feels like too much at once. Burnout can feel like running on empty: exhaustion, detachment, and feeling less effective. You don’t need to know which it is to reach out.'],
+        ['Can counseling help if I can’t change my job or responsibilities?', 'Yes. Counseling can help you protect your energy, set more sustainable boundaries, and find small changes that make a real difference, even when the bigger picture stays the same.'],
+        ['I don’t have much time. Is counseling realistic for me?', 'Online sessions across Texas can make care easier to fit into a full schedule. Most sessions are about 50 to 60 minutes.'],
+    ],
+    '/life-challenges/' => [
+        ['Does it have to be a big life change to seek support?', 'No. Any change that leaves you feeling uncertain, unsettled, or unlike yourself is worth talking about, big or small.'],
+        ['Is there a right time to start counseling after a loss?', 'There is no right or wrong time. Some people reach out right away, others months or years later. Grief moves at its own pace, and so can counseling.'],
+        ['What if I don’t know what I want next?', 'That’s okay. Counseling can be a place to sit with uncertainty, explore your options, and make difficult decisions with more clarity.'],
+    ],
+    '/lgbtq-affirmative-support/' => [
+        ['Do I need to be out to get support?', 'No. Wherever you are in your journey, you are welcome here, and you decide what you share and when.'],
+        ['Will counseling focus only on my identity?', 'Only if you want it to. Affirming care sees the whole person and follows what matters to you, whether that’s identity, relationships, anxiety, or anything else.'],
+        ['Do you offer group support?', 'Yes. LifeWise offers an LGBTQIA+ support group, an affirming space for connection, shared experience, and belonging.'],
+    ],
+];
